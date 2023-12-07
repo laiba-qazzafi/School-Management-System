@@ -9,7 +9,7 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
-	$del_sql=mysql_query("DELETE FROM   article_tbl WHERE a_id=$id");
+	$del_sql=mysqli_query("DELETE FROM   article_tbl WHERE a_id=$id");
 	if($del_sql)
 		$msg="1 Record Deleted... !";
 	else
@@ -61,12 +61,12 @@ if(isset($_GET['rs_id']))
 				$key=$_POST['searchtxt'];
 			
 			if($key !="")
-				$sql_sel=mysql_query("SElECT * FROM article_tbl WHERE  title  like '%$key%' ");
+				$sql_sel=mysqli_query($mysql,"SElECT * FROM article_tbl WHERE  title  like '%$key%' ");
 			else
-		 $sql_sel=mysql_query("SELECT * FROM article_tbl");
+		 $sql_sel=mysqli_query($mysql,"SELECT * FROM article_tbl");
 			 
 			 $i=0;
-			while($row=mysql_fetch_array($sql_sel)){
+			while($row=mysqli_fetch_array($sql_sel)){
 				$i++;
 				$color=($i%2==0)?"lightblue":"white";
 			?>	 

@@ -17,7 +17,7 @@
         $dob     = $_POST['dob'];
         $mail    = $_POST['emailtxt'];
 
-        $sql_ins=mysql_query("INSERT INTO stu_tbl VALUES('$roll_no', NULL,'$f_name','$l_name','$gender','$dob','$addr','$phone','$mail')");
+        $sql_ins=mysqli_query($mysql,"INSERT INTO stu_tbl VALUES('$roll_no', NULL,'$f_name','$l_name','$gender','$dob','$addr','$phone','$mail')");
         if($sql_ins==true) {
             $msg = ucfirst($f_name) ;
             echo "<div>"
@@ -43,7 +43,7 @@ if(isset($_POST['btn_upd'])){
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
 	
-	$sql_update=mysql_query("UPDATE stu_tbl SET
+	$sql_update=mysqli_query($mysql,"UPDATE stu_tbl SET
                                 roll_no = '$roll_no', 
 								f_name='$f_name',
 								l_name='$l_name' ,
@@ -81,8 +81,8 @@ if(isset($_POST['btn_upd'])){
 
 if($opr=="upd")
 {
-	$sql_upd=mysql_query("SELECT * FROM stu_tbl WHERE stu_id=$id");
-	$rs_upd=mysql_fetch_array($sql_upd);
+	$sql_upd=mysqli_query($mysql,"SELECT * FROM stu_tbl WHERE stu_id=$id");
+	$rs_upd=mysqli_fetch_array($sql_upd);
 	list($y,$m,$d)=explode('-',$rs_upd['dob']);
 ?>
 

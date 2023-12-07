@@ -10,7 +10,7 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
-	$del_sql=mysql_query("DELETE FROM teacher_tbl WHERE teacher_id=$id");
+	$del_sql=mysqli_query($mysql,"DELETE FROM teacher_tbl WHERE teacher_id=$id");
 	if($del_sql) {
         {
             echo "<div>"
@@ -77,12 +77,12 @@ if(isset($_GET['rs_id']))
 		$key=$_POST['searchtxt'];
 	
 	if($key !="")
-		$sql_sel=mysql_query("SElECT * FROM teacher_tbl WHERE f_name  like '%$key%' or l_name like '%$key%'");
+		$sql_sel=mysqli_query($mysql,"SElECT * FROM teacher_tbl WHERE f_name  like '%$key%' or l_name like '%$key%'");
 	else
-        $sql_sel=mysql_query("SELECT * FROM teacher_tbl");
+        $sql_sel=mysqli_query($mysql,"SELECT * FROM teacher_tbl");
 		
     $i=0;
-    while($row=mysql_fetch_array($sql_sel)){
+    while($row=mysqli_fetch_array($sql_sel)){
     $i++;
     $color=($i%2==0)?"lightblue":"white";
     ?>

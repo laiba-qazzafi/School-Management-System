@@ -14,7 +14,7 @@ if(isset($_POST['btn_sub'])){
 	$type=$_POST['typetxt'];
 	
 
-$sql_ins=mysql_query("INSERT INTO users_tbl 
+$sql_ins=mysqli_query($mysql,"INSERT INTO users_tbl 
 						VALUES(
 							NULL,
 							'$username',
@@ -43,7 +43,7 @@ if(isset($_POST['btn_upd'])){
 	$pwd=$_POST['pwdtxt'];
 	$type=$_POST['typetxt'];
 	
-	$sql_update=mysql_query("UPDATE users_tbl SET 
+	$sql_update=mysqli_query($mysql,"UPDATE users_tbl SET 
 								username='$username' ,
 								password='$pwd' , 
 								type='$type'
@@ -74,8 +74,8 @@ if(isset($_POST['btn_upd'])){
 <?php
 if($opr=="upd")
 {
-	$sql_upd=mysql_query("SELECT * FROM users_tbl WHERE u_id=$id");
-	$rs_upd=mysql_fetch_array($sql_upd);
+	$sql_upd=mysqli_query($mysql,"SELECT * FROM users_tbl WHERE u_id=$id");
+	$rs_upd=mysqli_fetch_array($sql_upd);
 ?>
 <div class="col-md-10 col-md-offset-1 form-style">
     <div class="col-md-12 entry-head margin-20b">

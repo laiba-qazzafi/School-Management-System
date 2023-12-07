@@ -17,7 +17,7 @@ if(isset($_POST['btn_sub'])){
 	$note=$_POST['notetxt'];	
 	
 
-$sql_ins=mysql_query("INSERT INTO stu_score_tbl 
+$sql_ins=mysqli_query($mysql,"INSERT INTO stu_score_tbl 
 						VALUES(
 							NULL,
 							'$stu_name',
@@ -51,7 +51,7 @@ if(isset($_POST['btn_upd'])){
 	$final=$_POST['finaltxt'];
 	$note=$_POST['notetxt'];
 	
-	$sql_update=mysql_query("UPDATE stu_score_tbl SET
+	$sql_update=mysqli_query($mysql,"UPDATE stu_score_tbl SET
 							stu_id='$stu_id' ,
 							faculties_id='$faculties_id' ,
 							sub_id='$sub_id' ,
@@ -86,8 +86,8 @@ else {
 <?php
 if($opr=="upd")
 {
-	$sql_upd=mysql_query("SELECT * FROM stu_score_tbl WHERE ss_id=$id");
-	$rs_upd=mysql_fetch_array($sql_upd);
+	$sql_upd=mysqli_query($mysql,"SELECT * FROM stu_score_tbl WHERE ss_id=$id");
+	$rs_upd=mysqli_fetch_array($sql_upd);
 ?>
 <div class="col-md-10 col-md-offset-1 form-style">
     <div class="col-md-12 entry-head margin-20b">
@@ -102,8 +102,8 @@ if($opr=="upd")
                     <div class="col-sm-8">
                         <select name="sudenttxt" class="form-control">
                             <?php
-                            $student_name=mysql_query("SELECT * FROM stu_tbl");
-                            while($row=mysql_fetch_array($student_name)){
+                            $student_name=mysqli_query($mysql,"SELECT * FROM stu_tbl");
+                            while($row=mysqli_fetch_array($student_name)){
                                 if($row['stu_id']==$rs_upd['stu_id'])
                                     $iselect="selected";
                                 else
@@ -121,8 +121,8 @@ if($opr=="upd")
                     <div class="col-sm-8">
                         <select name="factxt" class="form-control">
                             <?php
-                            $fac_name=mysql_query("SELECT * FROM facuties_tbl");
-                            while($row=mysql_fetch_array($fac_name)){
+                            $fac_name=mysqli_query($mysql,"SELECT * FROM facuties_tbl");
+                            while($row=mysqli_fetch_array($fac_name)){
                                 if($row['faculties_id']==$rs_upd['faculties_id'])
                                     $iselect="selected";
                                 else
@@ -140,8 +140,8 @@ if($opr=="upd")
                     <div class="col-sm-8">
                         <select name="subjecttxt" class="form-control">
                             <?php
-                            $subject=mysql_query("SELECT * FROM sub_tbl");
-                            while($row=mysql_fetch_array($subject)){
+                            $subject=mysqli_query($mysql,"SELECT * FROM sub_tbl");
+                            while($row=mysqli_fetch_array($subject)){
                                 if($row['sub_id']==$rs_upd['sub_id'])
                                     $iselect="selected";
                                 else
@@ -198,8 +198,8 @@ else
                     <div class="col-sm-8">
                         <select name="sudenttxt" class="form-control">
                             <?php
-                            $student_name=mysql_query("SELECT * FROM stu_tbl");
-                            while($row=mysql_fetch_array($student_name)){
+                            $student_name=mysqli_query($mysql,"SELECT * FROM stu_tbl");
+                            while($row=mysqli_fetch_array($student_name)){
                                 ?>
                                 <option value="<?php echo $row['f_name']; echo" "; echo $row['l_name'];?>"> <?php echo $row['f_name']; echo" "; echo $row['l_name'];?> </option>
                             <?php
@@ -213,8 +213,8 @@ else
                     <div class="col-sm-8">
                         <select name="factxt" class="form-control">
                             <?php
-                            $fac_name=mysql_query("SELECT * FROM facuties_tbl");
-                            while($row=mysql_fetch_array($fac_name)){
+                            $fac_name=mysqli_query($mysql,"SELECT * FROM facuties_tbl");
+                            while($row=mysqli_fetch_array($fac_name)){
                                 ?>
                                 <option value="<?php echo $row['faculties_name'];?>"> <?php echo $row['faculties_name'];?> </option>
                             <?php
@@ -228,8 +228,8 @@ else
                     <div class="col-sm-8">
                         <select name="subjecttxt" class="form-control">
                             <?php
-                            $subject=mysql_query("SELECT * FROM sub_tbl");
-                            while($row=mysql_fetch_array($subject)){
+                            $subject=mysqli_query($mysql,"SELECT * FROM sub_tbl");
+                            while($row=mysqli_fetch_array($subject)){
                                 ?>
                                 <option value="<?php echo $row['sub_name'];?>"> <?php echo $row['sub_name'];?> </option>
                             <?php

@@ -22,7 +22,7 @@ if(isset($_POST['btn_sub'])){
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
 	
-$sql_ins=mysql_query("INSERT INTO teacher_tbl VALUES( NULL,'$f_name','$l_name' ,'$gender','$dob','$addr','$degree','$salary' ,'$married','$phone','$mail')");
+$sql_ins=mysqli_query($mysql,"INSERT INTO teacher_tbl VALUES( NULL,'$f_name','$l_name' ,'$gender','$dob','$addr','$degree','$salary' ,'$married','$phone','$mail')");
 if($sql_ins==true) {
     $msg = ucfirst($f_name) ;
     echo "<div>"
@@ -50,7 +50,7 @@ if(isset($_POST['btn_upd'])){
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
 
-	$sql_update=mysql_query("UPDATE teacher_tbl SET
+	$sql_update=mysqli_query($mysql,"UPDATE teacher_tbl SET
 							f_name='$f_name' ,
 							l_name='$l_name' ,
 							gender='$gender' ,
@@ -90,8 +90,8 @@ else {
 <?php
 if($opr=="upd")
 {
-	$sql_upd=mysql_query("SELECT * FROM teacher_tbl WHERE teacher_id=$id");
-	$rs_upd=mysql_fetch_array($sql_upd);
+	$sql_upd=mysqli_query($mysql,"SELECT * FROM teacher_tbl WHERE teacher_id=$id");
+	$rs_upd=mysqli_fetch_array($sql_upd);
 	list($y,$m,$d)=explode('-',$rs_upd['dob']);
 ?>
 <div class="col-md-10 col-md-offset-1 form-style">

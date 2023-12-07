@@ -9,14 +9,14 @@
 		$uname=$_POST['username'];
 		$pwd=$_POST['password'];
 		
-		$sql=mysql_query("SELECT * FROM users_tbl
+		$sql=mysqli_query($mysql, "SELECT * FROM users_tbl
 								WHERE username='$uname' AND password='$pwd' 
 								
 							");
 						
-		$cout=mysql_num_rows($sql);
+		$cout=mysqli_num_rows($sql);
 			if($cout>0){
-				$row=mysql_fetch_array($sql);
+				$row=mysqli_fetch_array($sql);
 					if($row['type']=='admin') {
 						$msg = "wrong Username and Password";	
 						}	

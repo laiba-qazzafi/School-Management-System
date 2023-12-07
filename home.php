@@ -5,8 +5,8 @@
             <span class="headline">Students</span>
             <span class="value">
                 <?php
-                    $sql_sel=mysql_query("SELECT * FROM stu_tbl");
-                    $count = mysql_num_rows($sql_sel);
+                    $sql_sel=mysqli_query($mysql,"SELECT * FROM stu_tbl");
+                    $count = mysqli_num_rows($sql_sel);
                     echo $count;
                 ?>
             </span>
@@ -18,8 +18,8 @@
             <span class="headline">Teachers</span>
             <span class="value">
                 <?php
-                    $sql_sel=mysql_query("SELECT * FROM teacher_tbl");
-                    $count = mysql_num_rows($sql_sel);
+                    $sql_sel=mysqli_query($mysql,"SELECT * FROM teacher_tbl");
+                    $count = mysqli_num_rows($sql_sel);
                     echo $count;
                 ?>
             </span>
@@ -31,8 +31,8 @@
             <span class="headline">Users</span>
             <span class="value">
                 <?php
-                    $sql_sel=mysql_query("SELECT * FROM users_tbl");
-                    $count = mysql_num_rows($sql_sel);
+                    $sql_sel=mysqli_query($mysql,"SELECT * FROM users_tbl");
+                    $count = mysqli_num_rows($sql_sel);
                     echo $count;
                 ?>
             </span>
@@ -44,8 +44,8 @@
             <span class="headline">Faculty</span>
             <span class="value">
                 <?php
-                $sql_sel=mysql_query("SELECT * FROM facuties_tbl");
-                $count = mysql_num_rows($sql_sel);
+                $sql_sel=mysqli_query($mysql,"SELECT * FROM facuties_tbl");
+                $count = mysqli_num_rows($sql_sel);
                 echo $count;
                 ?>
             </span>
@@ -57,8 +57,8 @@
             <span class="headline">Subject</span>
             <span class="value">
                 <?php
-                $sql_sel=mysql_query("SELECT * FROM sub_tbl");
-                $count = mysql_num_rows($sql_sel);
+                $sql_sel=mysqli_query($mysql,"SELECT * FROM sub_tbl");
+                $count = mysqli_num_rows($sql_sel);
                 echo $count;
                 ?>
             </span>

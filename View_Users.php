@@ -10,7 +10,7 @@ if(isset($_GET['rs_id']))
 	
 	if($opr=="del")
 {
-	$del_sql=mysql_query("DELETE FROM users_tbl WHERE u_id=$id");
+	$del_sql=mysqli_query($mysql,"DELETE FROM users_tbl WHERE u_id=$id");
 	if($del_sql) {
         echo "<div>"
             . "<div class='alert alert-success col-md-6 col-md-offset-3'>"
@@ -66,13 +66,13 @@ if(isset($_GET['rs_id']))
 		$key=$_POST['searchtxt'];
 	
 	if($key !="")
-		$sql_sel=mysql_query("SElECT * FROM users_tbl WHERE username  like '%$key%' ");
+		$sql_sel=mysqli_query($mysql,"SElECT * FROM users_tbl WHERE username  like '%$key%' ");
 	else
-        $sql_sel=mysql_query("SELECT * FROM users_tbl");
+        $sql_sel=mysqli_query($mysql,"SELECT * FROM users_tbl");
 		
 		
     $i=0;
-    while($row=mysql_fetch_array($sql_sel)){
+    while($row=mysqli_fetch_array($sql_sel)){
     $i++;
     $color=($i%2==0)?"lightblue":"white";
     ?>
