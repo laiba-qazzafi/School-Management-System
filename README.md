@@ -2,6 +2,9 @@
 FYP Develop using ( PHP. HTML, CSS, JS , BOOTSTRAP).
 Cogdeigniter Version Comming Soon........
 
+### New Version
+In versions of PHP 7 or greater, mysql_* functions have two alternatives: [MYSQLi](https://www.php.net/manual/en/book.mysqli.php) and [PDO](https://www.php.net/manual/en/book.pdo.php). mysqli_*, are used in this project.
+
 ## GETTING STARTED
 + Clone Repo Using Following link.
 ```cmd
@@ -18,5 +21,6 @@ git clone https://github.com/jazib-bashir/School-Management-System.git
 ```
 
 + Now open Database.sql file which include scripr run this scipt in your newely created DB
++ Or you can open phpmyadmin create a new database and import the Database.sql in it.
 
 ALL DONE.
